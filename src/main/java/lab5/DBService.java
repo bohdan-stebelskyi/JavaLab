@@ -39,7 +39,7 @@ public class DBService {
                 {
                         """
                         create table java_db_lab.vehicle (
-                            id bigint not null auto_increment,
+                            id int not null auto_increment,
                             type varchar(100) not null,
                             color varchar(100) not null,
                             numbers int not null,
@@ -49,11 +49,11 @@ public class DBService {
                         """,
                         """
                          create table java_db_lab.person (
-                            id bigint not null auto_increment,
+                            id int not null auto_increment,
                             name varchar(100) not null,
                             surname varchar(100) not null,
                             age int not null,
-                            id_vehicle bigint,
+                            id_vehicle int,
                             constraint pk_person primary key (id),
                             foreign key (id_vehicle) references java_db_lab.vehicle(id) on update cascade on delete set null
                         );

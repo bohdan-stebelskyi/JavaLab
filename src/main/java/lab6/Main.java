@@ -1,4 +1,4 @@
-package lab5;
+package lab6;
 
 import java.sql.SQLException;
 
@@ -9,7 +9,8 @@ public class Main {
         String password = "";
         DBService service = new DBService(url,username,password);
 
-        service.createAllTables();
-        //service.dropAllTables();
+        //service.insertVehicle("car", "red", 12364, "toyota");
+        //service.insertPerson("John", "Doe", 31, 1);
+        service.insertPerson("Chris", "Cornell", 51, 3);
     }
 }

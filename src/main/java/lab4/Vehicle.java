@@ -3,8 +3,10 @@ package lab4;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.Objects;
 import java.util.Set;
 
@@ -95,7 +97,8 @@ public class Vehicle {
         public String type;
         @NotEmpty
         public String color;
-        @NotEmpty
+        @NotNull
+        @Positive(message = "Number must be a positive number")
         public int number;
         @NotEmpty
         public String model;
@@ -131,4 +134,3 @@ public class Vehicle {
         }
     }
 }
-

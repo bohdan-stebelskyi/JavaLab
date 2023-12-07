@@ -19,6 +19,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.21")
     implementation("org.springframework.boot:spring-boot-starter-validation:2.6.1")
     implementation("mysql:mysql-connector-java:8.0.33")
+    implementation("javax.servlet:javax.servlet-api:4.0.1")
 }
 
 tasks.test {

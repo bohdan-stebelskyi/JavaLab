@@ -3,8 +3,10 @@ package lab4;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import java.util.Objects;
 import java.util.Set;
@@ -15,7 +17,7 @@ public class Person implements Comparable<Person> {
     private int age;
     private Vehicle vehicle;
 
-    private Person(String firstName, String secondName, int age, Vehicle vehicle) {
+    Person(String firstName, String secondName, int age, Vehicle vehicle) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.age = age;
@@ -64,13 +66,14 @@ public class Person implements Comparable<Person> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Person)) return false;
+        if (!(o instanceof lab4.Person)) return false;
         Person person = (Person) o;
         return  Objects.equals(firstName, person.firstName) &&
                 Objects.equals(secondName, person.secondName) &&
-                Objects.equals(age, person.age) &&
+                age == person.age &&
                 Objects.equals(vehicle, person.vehicle);
     }
+
 
 
     @Override
@@ -99,6 +102,8 @@ public class Person implements Comparable<Person> {
         @NotEmpty
         public String secondName;
         @NotNull
+        @Positive(message = "Age must be a positive number")
+        @Min(value = 1, message = "Age must be greater than or equal to 1")
         public int age;
         @NotNull
         public Vehicle vehicle;

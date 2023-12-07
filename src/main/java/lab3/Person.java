@@ -3,8 +3,10 @@ package lab3;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import java.util.Objects;
 import java.util.Set;
@@ -100,6 +102,8 @@ public class Person implements Comparable<Person> {
         @NotEmpty
         public String secondName;
         @NotNull
+        @Positive(message = "Age must be a positive number")
+        @Min(value = 1, message = "Age must be greater than or equal to 1")
         public int age;
         @NotNull
         public Vehicle vehicle;

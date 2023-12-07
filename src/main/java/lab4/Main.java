@@ -1,30 +1,38 @@
 package lab4;
 
+import lab3.Person;
+import lab3.Vehicle;
+
+import java.util.TreeSet;
+
 public class Main {
     public static void main(String[] args) {
+        TreeSet<Person> person1 = new TreeSet<>();
         Person.PersonBuilder obj1 = new Person.PersonBuilder();
         Person.PersonBuilder obj2 = new Person.PersonBuilder();
-        Vehicle.VehicleBuilder obj3 = new Vehicle.VehicleBuilder();
+        Person.PersonBuilder obj3 = new Person.PersonBuilder();
 
-        Vehicle v = new Vehicle.VehicleBuilder()
-                .setType("Automobile")
-                .setColor("Red")
-                .setNumber(123456)
-                .setModel("Toyota").build();
+        obj1.setFirstName("John");
+        obj1.setSecondName("Doe");
+        obj1.setAge(27);
+        obj1.setVehicle(new Vehicle("Minivan", "White", 5748459, "Mitsubishi"));
 
-        Person p = new Person.PersonBuilder()
-                .setFirstName("John")
-                .setSecondName("Doe")
-                .setAge(25)
-                .setVehicle(v).build();
+        obj2.setFirstName("Chriss");
+        obj2.setSecondName("Cornell");
+        obj2.setAge(46);
+        obj2.setVehicle(new Vehicle("Automobile", "Red", 9567456, "Ferrari"));
 
-        obj2.setFirstName("Victor");
-        obj2.setSecondName("Pavlik");
-        obj2.setAge(49);
-        obj2.setVehicle(new Vehicle("Minivan", "Black", 784955, "Mercedes")); //null test
+        obj3.setFirstName("Layne");
+        obj3.setSecondName("Staley");
+        obj3.setAge(31);
+        obj3.setVehicle(new Vehicle("Automobile", "Red", 546323, "Corvet"));
 
-        System.out.println(obj1.build());
-        System.out.println(obj2.build());
-        System.out.println(obj3.build());
+        person1.add(obj1.build());
+        person1.add(obj2.build());
+        person1.add(obj3.build());
+        for (Person p : person1) {
+            System.out.println(p);
+        }
+        System.out.println("\n");
     }
 }
